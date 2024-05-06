@@ -1,0 +1,44 @@
+{{refreshMessage}}
+<br>
+<button (click)="refresh()">Refresh</button>
+<table class="table">   
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Swimming Pool Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of loadCust">
+            <td>{{l.swimmingPoolName}}</td>
+            <td>{{l.date}}</td>
+            <td>{{l.time}}</td>
+            <td>{{l.quantity}}</td>
+            <button (click)="edit(l.id, l.pid)">Edit</button>
+        </tr>
+      </tbody>
+</table>
+
+<div style="color: lightgreen;">
+    {{message}}
+</div>
+
+<form [formGroup]="editBooking" *ngIf="status == true" (ngSubmit)="save()" class="form-group">
+    <div class="form-group">     
+        <label for="username">Date</label>
+        <input type="date"  formControlName="date" id="date" class="form-control">
+        <div *ngIf="date?.touched && date?.invalid" class="alert alert-danger">Date can't be empty</div>
+                
+        <label for="time">Time</label>
+        <input type="time" formControlName="time" id="time" class="form-control">
+        <div *ngIf="time?.touched && time?.invalid" class="alert alert-danger">Time can't be empty</div>
+                
+        <label for="quantity">Quantity</label>
+        <input type="number" formControlName="quantity" id="quantity" class="form-control">
+        <div *ngIf="quantity?.touched && quantity?.invalid" class="alert alert-danger">Time can't be empty</div>
+        <br>
+        <input type="submit" id="sumbit" class="btn btn-primary">
+    </div>
+</form>

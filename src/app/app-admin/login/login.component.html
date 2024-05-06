@@ -1,0 +1,43 @@
+{{ message }}
+<div class="container">
+  <div class="center-container">
+    <form
+      [formGroup]="login"
+      (ngSubmit)="save()"
+      *ngIf="status == false"
+      class="center-form"
+    >
+      <div class="form-group">
+        <label for="username">Username : </label>
+        <input
+          type="text"
+          formControlName="username"
+          id="uername"
+          class="form-control"
+        />
+        <div
+          *ngIf="username?.touched && username?.invalid"
+          class="alert alert-danger"
+        >
+          Enter your username
+        </div>
+
+        <label for="password">Password : </label>
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+          class="form-control"
+        />
+        <div
+          *ngIf="password?.touched && password?.invalid"
+          class="alert alert-danger"
+        >
+          Enter Password
+        </div>
+        <br />
+        <input type="submit" id="submit" class="btn btn-primary" />
+      </div>
+    </form>
+  </div>
+</div>

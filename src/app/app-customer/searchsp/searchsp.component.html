@@ -1,0 +1,111 @@
+<button (click)="toShowTableBaSearch()" class="btn btn-primary">Basic Search</button>
+<form [formGroup]="searchForm" (ngSubmit)="save()"  *ngIf="basicSearchFormStatus == true">
+    <div class="form-group">
+        <label for="name">Name of Swimming Pool</label>
+        <input type="text" formControlName="name" class="form-control" id="name">
+        <div *ngIf="name?.touched && name?.invalid">
+            This Field can't be empty
+        </div>
+    </div>
+
+    <div class="form-group" (click)="toShowBasicTable()">
+        <input type="submit" value="submit">
+    </div>
+
+    <div style="color: lightgreen;" *ngIf="status == true">
+        {{ message }}
+    </div>
+    
+    <div style="color: red;" *ngIf="status == false">
+        {{ message }}
+    </div>
+
+    <div *ngIf="basicTableshow == true">
+        <table border="1" class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Plot No</th>
+                <th scope="col">Street Name</th>
+                <th scope="col">Area Name</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Country</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Book your Sp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of searchList">
+                <td>{{s.title}}</td>
+                <td>{{s.plotNo}}</td>
+                <td>{{s.streetName}}</td>
+                <td>{{s.areaName}}</td>
+                <td>{{s.city}}</td>
+                <td>{{s.state}}</td>
+                <td>{{s.country}}</td>
+                <td>{{s.pinCode}}</td>
+                <button (click)="bookClicked(s.id)" >Book your SP</button>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</form>
+
+<br>
+
+<!-- aAdvanced Search -->
+<button (click)="toShowTableAdSearch()" class="btn btn-primary">Advanced Search</button>
+
+<div *ngIf="advancedSearchFormStatus == true" >
+  <form [formGroup]="advancedSearch" (ngSubmit)="searchAdvanced()" class="form-group">
+    City : <input type="text" formControlName="city" id="city" class="form-control" >
+    State : <input type="text" formControlName="state" id="state" class="form-control">
+    Country : <input type="text" formControlName="country" id="country" class="form-control">
+    
+    <input type="submit" id="submit" class="btn btn-primary" (click)="toShowAdvanceTable()">
+  </form>
+</div>
+
+{{messageAdvanced}}
+<div *ngIf="statusAdvanced == true">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Plot No</th>
+            <th scope="col">Street Name</th>
+            <th scope="col">Area Name</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Country</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Book your SP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of advancedSearchResults">
+            <td>{{a.title}}</td>
+            <td>{{a.plotNo}}</td>
+            <td>{{a.streetName}}</td>
+            <td>{{a.areaName}}</td>
+            <td>{{a.city}}</td>
+            <td>{{a.state}}</td>
+            <td>{{a.country}}</td>
+            <td>{{a.pinCode}}</td>
+            <button (click)="bookClicked(a.id)" >Book your SP</button>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+{{bookingMessage}}
+
+<div *ngIf="bookingFormStatus" >
+  <form [formGroup]="book" (ngSubmit)="bookSp()" class="form-group">
+    Date : <input type="date" formControlName="date" id="date" class="form-control" >
+    Time : <input type="time" formControlName="time" id="time" class="form-control" >
+    No of Person : <input type="number" formControlName="quantity" id="quantity" class="form-control">
+    <input type="submit" id="submit" class="btn btn-primary">
+  </form>
+</div>

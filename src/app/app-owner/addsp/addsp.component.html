@@ -1,0 +1,138 @@
+{{ message }}
+<div class="row bg-img">
+  <div
+    class="col-10 offset-1 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center"
+  >
+    <div class="align">
+      <form
+        [formGroup]="swimmingPool"
+        (ngSubmit)="save()"
+        *ngIf="status == false"
+      >
+        <div class="form-group">
+          <label for="title"><b>Title :</b></label>
+          <input
+            type="text"
+            formControlName="title"
+            class="form-control"
+            id="title"
+          />
+          <div
+            *ngIf="title?.touched && title?.invalid"
+            class="alert alert-danger"
+          >
+            Title is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="plotNo"><b>Plot No :</b></label>
+          <input
+            type="text"
+            formControlName="plotNo"
+            class="form-control"
+            id="plotNo"
+          />
+          <div
+            *ngIf="plotNo?.touched && plotNo?.invalid"
+            class="alert alert-danger"
+          >
+            Plot No is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="streetName"><b>Street Name :</b></label>
+          <input
+            type="text"
+            formControlName="streetName"
+            class="form-control"
+            id="streetName"
+          />
+          <div
+            *ngIf="streetName?.touched && streetName?.invalid"
+            class="alert alert-danger"
+          >
+            Street Name is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="areaName"><b>Area Name :</b></label>
+          <input
+            type="text"
+            formControlName="areaName"
+            class="form-control"
+            id="areaName"
+          />
+          <div
+            *ngIf="areaName?.touched && areaName?.invalid"
+            class="alert alert-danger"
+          >
+            Area Name is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="city"><b>City :</b></label>
+          <input
+            type="text"
+            formControlName="city"
+            class="form-control"
+            id="city"
+          />
+          <div
+            *ngIf="city?.touched && city?.invalid"
+            class="alert alert-danger"
+          >
+            City is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="state"><b>State :</b></label>
+          <input
+            type="text"
+            formControlName="state"
+            class="form-control"
+            id="state"
+          />
+          <div
+            *ngIf="state?.touched && state?.invalid"
+            class="alert alert-danger"
+          >
+            State is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="country"><b>Country :</b></label>
+          <input
+            type="text"
+            formControlName="country"
+            class="form-control"
+            id="country"
+          />
+          <div
+            *ngIf="country?.touched && country?.invalid"
+            class="alert alert-danger"
+          >
+            Country is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pinCode"><b>Pin Code :</b></label>
+          <input
+            type="text"
+            formControlName="pinCode"
+            class="form-control"
+            id="pinCode"
+          />
+          <div
+            *ngIf="pinCode?.touched && pinCode?.invalid"
+            class="alert alert-danger"
+          >
+            Pin Code is Required
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

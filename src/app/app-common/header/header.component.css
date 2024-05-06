@@ -1,0 +1,64 @@
+/* .header
+{
+    position: relative;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    background-color: violet;
+} */
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #87CEEB, #00BFFF);
+}
+
+
+/* Styling the navigation links */
+.nav-link {
+    color: #333;
+    /* Text color */
+    font-weight: bold;
+    /* Bold font */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+.nav-link:hover {
+    color: #8739b8;
+    /* Change color on hover */
+}
+
+/* Styling the navigation bar background */
+.bg-light {
+    background: linear-gradient(to right,#8739b8,#2874af);
+    /* Gradient background */
+}
+
+/* Styling the navigation toggle button */
+.navbar-toggler {
+    border-color: transparent;
+    /* Remove border */
+    background: transparent;
+    /* Transparent background */
+}
+
+.navbar-toggler:hover {
+    opacity: 0.8;
+    /* Reduce opacity on hover */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+    /* Change color of the toggle icon */
+}
+
+/* Styling the container */
+.container-fluid {
+    max-width: 1200px;
+    /* Limiting container width */
+}
